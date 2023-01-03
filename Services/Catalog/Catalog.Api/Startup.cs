@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Catalog.Api.Data;
+using Catalog.Api.Repository;
 
 namespace Catalog.Api
 {
@@ -27,6 +29,8 @@ namespace Catalog.Api
         {
 
             services.AddControllers();
+            services.AddScoped<ICatalogContext,CatalogContext>();
+            services.AddScoped<IProductRepository,ProductRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog.Api", Version = "v1" });
