@@ -1,17 +1,19 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Ordering.Application.Features.Commands.CheckOutOrder;
+using Ordering.Application.Features.Commands.UpdateOrder;
+using Ordering.Application.Features.Queries.GetOrderList;
+using Ordering.Domain.Entities;
 
 namespace Ordering.Application.Mapping
 {
-    public class MappingProfile:Profile
+    public class MappingProfile : Profile
     {
         public MappingProfile()
         {
-            
+            CreateMap<Order, CheckoutOrderCommand>().ReverseMap();
+            CreateMap<Order, UpdateOrderCommand>().ReverseMap();
+            CreateMap<Order, OrdersVm>().ReverseMap();
+
         }
     }
 }
