@@ -7,10 +7,10 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Services/Ordering/Ordering.Api/Ordering.Api.csproj", "Services/Ordering/Ordering.Api/"]
+COPY ["BuildingBlocks/EventBusMessage/EventBusMessage.csproj", "BuildingBlocks/EventBusMessage/"]
 COPY ["Services/Ordering/Ordering.Application/Ordering.Application.csproj", "Services/Ordering/Ordering.Application/"]
 COPY ["Services/Ordering/Ordering.Domain/Ordering.Domain.csproj", "Services/Ordering/Ordering.Domain/"]
 COPY ["Services/Ordering/Ordering.Infrastructurer/Ordering.Infrastructure.csproj", "Services/Ordering/Ordering.Infrastructurer/"]
-COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
 RUN dotnet restore "Services/Ordering/Ordering.Api/Ordering.Api.csproj"
 COPY . .
 WORKDIR "/src/Services/Ordering/Ordering.Api"
