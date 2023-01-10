@@ -26,7 +26,7 @@ namespace AspnetRunBasics
 
         public async Task<IActionResult> OnGetAsync()
         {
-            var userName = "swn";
+            var userName = "pedram";
             Cart = await _basketService.GetBasket(userName);
 
             return Page();
@@ -34,7 +34,7 @@ namespace AspnetRunBasics
 
         public async Task<IActionResult> OnPostCheckOutAsync()
         {
-            var userName = "swn";
+            var userName = "pedram";
             Cart = await _basketService.GetBasket(userName);
 
             if (!ModelState.IsValid)

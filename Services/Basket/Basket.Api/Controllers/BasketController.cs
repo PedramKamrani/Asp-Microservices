@@ -1,4 +1,5 @@
-﻿using Basket.Api.Entities;
+﻿using System;
+using Basket.Api.Entities;
 using Basket.Api.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -70,6 +71,7 @@ namespace Basket.Api.Controllers
 
             // get existing basket with total price
             var basket = await _repository.GetBasket(basketCheckout.UserName);
+            Console.WriteLine("null basket");
             if (basket == null)
             {
                 return BadRequest();
